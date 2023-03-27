@@ -1,0 +1,51 @@
+h1{
+	text-align: center;
+}
+h3{
+	font-weight: 500;
+}
+.column1of2{
+	float: left;
+	width: 45%;
+	border: 1px solid red;
+	border-radius: 15px;
+}
+.column2of2{
+	float: left;
+	width: 45%;
+	border: 1px dashed red;
+	border-radius: 15px;
+}
+.last{
+	width: 100%;
+	margin-top: 60%;
+	float: right;
+	margin-bottom: 20px;
+}
+ul, ol{
+	font-weight: 300;
+	
+	
+}
+
+ol{
+	padding: 10px;
+	list-style-position: inside;
+}
+ul{
+	list-style-type: upper-roman;
+	padding: 10px;
+	list-style-position: inside;
+}
+a:link{
+	color:black;
+}
+
+a:visited{
+	color:blue;
+}
+
+a:hover{
+	color:hotpink;
+	display: inline-block;
+}
