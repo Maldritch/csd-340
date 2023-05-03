@@ -1,0 +1,87 @@
+<!-- Brandon Burnett : Assignment 11.2 -->
+<!DOCTYPE html>
+<html lang="en">
+<head	
+	<title>CSD 340 Web Development with HTML and CSS</title>
+	<style>
+		#entry-list {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<h1>Assignment 11.2: JavaScript - Part 3</h1>
+	</header>
+	<label for="entry">Enter an entry:</label>
+	<input type="text" id="entry" name="entry"><br><br>
+	<button id="add-btn">Add</button>
+	<button id="delete-btn">Delete Last Entry</button>
+	<button id="display-btn">Display</button>
+
+	<div id="entry-list"></div>
+
+	<script>
+		let entries = [];
+
+		function addEntry() 
+		{
+			const entry = document.getElementById("entry").value;
+			entries.push(entry);
+			updateList();
+			alert(`Added ${entry} to position ${entries.length}`);
+			document.getElementById("entry").value = ""; 
+		}
+
+		function deleteLastEntry() 
+		{
+			if (entries.length > 0) 
+			{
+				entries.pop();
+				updateList();
+			} 
+			else 
+			{
+				alert("No entries to delete!");
+			}
+		}
+
+		function displayEntries() 
+		{
+			let listElement = document.getElementById("entry-list");
+			if (entries.length > 0) 
+			{
+				updateList();
+				if (listElement.style.display === "none") 
+				{
+					listElement.style.display = "block";
+				} 
+				else 
+				{
+					listElement.style.display = "none";
+				}
+			} 
+			else 
+			{
+				alert("No entries to display!");
+			}
+		}
+
+		function updateList() 
+		{
+			let listElement = document.getElementById("entry-list");
+			listElement.innerHTML = ""; 
+
+			for (let i = 0; i < entries.length; i++) 
+			{
+				let entryElement = document.createElement("div");
+				entryElement.innerText = `${i + 1}. ${entries[i]}`;
+				listElement.appendChild(entryElement);
+			}
+		}
+
+		document.getElementById("add-btn").addEventListener("click", addEntry);
+		document.getElementById("delete-btn").addEventListener("click", deleteLastEntry);
+		document.getElementById("display-btn").addEventListener("click", displayEntries);
+	</script>
+</body>
